@@ -1,0 +1,77 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+}
+
+.x_panel {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px 17px;
+  display: inline-block;
+  background: #fff;
+  border: 1px solid #E6E9ED;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
+  opacity: 1;
+  transition: all .2s ease
+}
+.x_title {
+  border-bottom: 2px solid #E6E9ED;
+  padding: 1px 5px 6px;
+  margin-bottom: 10px
+}
+.x_title .filter {
+  width: 40%;
+  float: right
+}
+.x_title h2 {
+  margin: 5px 0 6px;
+  float: left;
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap
+}
+.x_title h2 small {
+  margin-left: 10px
+}
+.x_content {
+  padding: 0 5px 6px;
+  position: relative;
+  width: 100%;
+  float: left;
+  clear: both;
+  margin-top: 5px
+}
+.x_content h4 {
+  font-size: 16px;
+  font-weight: 500
+}
+
+
+
+body .ui-inputtext.ng-touched.ng-invalid,
+body p-dropdown.ng-touched.ng-invalid > .ui-dropdown,
+body p-autocomplete.ng-touched.ng-invalid > .ui-autocomplete > .ui-inputtext,
+body p-calendar.ng-touched.ng-invalid > .ui-calendar > .ui-inputtext,
+body p-chips.ng-touched.ng-invalid > .ui-inputtext,
+body p-inputmask.ng-touched.ng-invalid > .ui-inputtext,
+body p-checkbox.ng-touched.ng-invalid .ui-chkbox-box,
+body p-radiobutton.ng-touched.ng-invalid .ui-radiobutton-box,
+body p-inputswitch.ng-touched.ng-invalid .ui-inputswitch,
+body p-listbox.ng-touched.ng-invalid .ui-inputtext,
+body p-multiselect.ng-touched.ng-invalid > .ui-multiselect,
+body p-spinner.ng-touched.ng-invalid > .ui-inputtext,
+body p-selectbutton.ng-touched.ng-invalid .ui-button,
+body p-inputtext.ng-touched.ng-invalid .ui-button,
+body p-togglebutton.ng-touched.ng-invalid .ui-button {
+  border: 1px solid #a80000 !important;
+}

@@ -1,0 +1,199 @@
+<div class="row">
+  <div class="col-md-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2><i class="fa fa-flag pull-left"></i> Cadastro</h2>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <form (ngSubmit)="cadastrarUsuario()" [formGroup]="cadastroForm">
+            <div
+              class="col-md-12 col-xs-12"
+              style="display: flex; justify-content: center"
+            >
+              <div class="col-md-6 col-xs-6">
+                <label class="form-label">Email address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="name@example.com"
+                  formControlName="email"
+                  name="email"
+                  [ngClass]="flagEmail ? 'error-flag ' : ''"
+                  (focus)="flagEmail = false"
+                />
+                <div *ngIf="flagEmail" class="alert alert-danger">
+                  <app-mensagem
+                    mensagem="Campo obrigatório"
+                    *ngIf="cadastroForm.controls.email.errors?.required"
+                  ></app-mensagem>
+                  <app-mensagem
+                    mensagem="E-mail inválido"
+                    *ngIf="cadastroForm.controls.email.errors?.email"
+                  ></app-mensagem>
+                </div>
+              </div>
+              <div class="col-md-3 col-xs-3">
+                <label class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="password"
+                  formControlName="password"
+                  maxlength="11"
+                  [ngClass]="flagPassword ? 'error-flag ' : ''"
+                  (focus)="flagRetypePassword = false; flagPassword = false;"
+                />
+                <div *ngIf="flagPassword" class="alert alert-danger">
+                  <app-mensagem
+                    mensagem="Password Obrigatório"
+                    *ngIf="cadastroForm.controls.password.errors?.required"
+                  ></app-mensagem>
+                  <app-mensagem
+                    mensagem="Passwords não são iguais"
+                    *ngIf="cadastroForm.errors?.passwordNaoSaoIguais"
+                  ></app-mensagem>
+                </div>
+              </div>
+              <div class="col-md-3 col-xs-3">
+                <label class="form-label">Re-Type Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="retypepassword"
+                  formControlName="retypepassword"
+                  maxlength="11"
+                  [ngClass]="flagRetypePassword ? 'error-flag ' : ''"
+                  (focus)="flagRetypePassword = false; flagPassword = false;"
+                />
+                <div *ngIf="flagRetypePassword" class="alert alert-danger">
+                  <app-mensagem
+                    mensagem="Password Obrigatório"
+                    *ngIf="cadastroForm.controls.password.errors?.required"
+                  ></app-mensagem>
+                  <app-mensagem
+                    mensagem="Passwords não são iguais"
+                    *ngIf="cadastroForm.errors?.passwordNaoSaoIguais"
+                  ></app-mensagem>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="col-md-12 col-xs-12"
+              style="display: flex; justify-content: center"
+            >
+              <div class="col-md-6 col-xs-6">
+                <label class="form-label">Nome</label>
+                <input
+                  type="text"
+                  placeholder="Caio Genaro Guimaraes"
+                  class="form-control"
+                  formControlName="nome"
+                  maxlength="11"
+                  [ngClass]="flagNome ? 'error-flag ' : ''"
+                  (focus)="flagNome = false"
+                />
+                <div *ngIf="flagNome" class="alert alert-danger">
+                  <app-mensagem
+                    mensagem="Nome Obrigatório"
+                    *ngIf="cadastroForm.controls.nome.errors?.required"
+                  ></app-mensagem>
+                  <app-mensagem
+                    mensagem="Nome deve conter mais que 3 letras"
+                    *ngIf="cadastroForm.controls.nome.errors?.minLength"
+                  ></app-mensagem>
+                </div>
+              </div>
+              <div class="col-md-6 col-xs-6">
+                <label class="form-label">Data Nascimento</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  formControlName="dataNascimento"
+                  [ngClass]="flagData ? 'error-flag ' : ''"
+                  (focus)="flagData = false"
+                />
+
+                <div *ngIf="flagData" class="alert alert-danger">
+                  <app-mensagem
+                    mensagem="Data de Nascimento Obrigatório"
+                    *ngIf="
+                      cadastroForm.controls.dataNascimento.errors?.required
+                    "
+                  ></app-mensagem>
+                  <app-mensagem
+                    mensagem="Obrigatorio ser maior de 18 anos"
+                    *ngIf="
+                      cadastroForm.controls.dataNascimento.errors?.menoridade
+                    "
+                  ></app-mensagem>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="col-md-12 col-xs-12"
+              style="display: flex; justify-content: center"
+            >
+              <div class="col-md-6 col-xs-6">
+                <label class="form-label">Sexo:</label>
+                <select formControlName="sexo" class="form-control"
+                [ngClass]="flagSexo ? 'error-flag ' : ''"
+                (focus)="flagSexo = false">
+                  <option disabled [selected]="triggerSelect">
+                    Selecione uma opção
+                  </option>
+                  <option value="M">Masculino</option>
+                  <option value="F">Feminino</option>
+                </select>
+                <div
+                  *ngIf="flagSexo"
+                  style="margin-top: 1rem"
+                  class="alert alert-danger"
+                >
+                  <app-mensagem
+                    mensagem="Sexo Obrigatorio"
+                    *ngIf="cadastroForm.controls.sexo.errors?.required"
+                  ></app-mensagem>
+                </div>
+              </div>
+              <div class="col-md-6 col-xs-6">
+                <label class="form-label">CPF</label>
+                <input
+                  type="cpf"
+                  placeholder="012456781-02"
+                  class="form-control"
+                  formControlName="cpf"
+                  maxlength="11"
+                  [ngClass]="flagCpf ? 'error-flag ' : ''"
+                  (focus)="flagCpf = false"
+                  
+                />
+                <div *ngIf="flagCpf" class="alert alert-danger">
+                  <app-mensagem
+                    mensagem="CPF Obrigatório"
+                    *ngIf="cadastroForm.controls.cpf.errors?.required"
+                  ></app-mensagem>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="col-md-12 col-xs-12"
+              style="display: flex; justify-content: end; margin-top: 1rem"
+            >
+              {{ cadastroForm.valid }}
+              {{ cadastroForm.errors }}
+              <button type="submit" class="btn btn-primary mb-3">
+                Cadastrar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

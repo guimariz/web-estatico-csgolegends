@@ -1,0 +1,79 @@
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
+  <div class="logo-container">
+    <button class="logo" (click)="toggleCollapse()">A</button>
+    <div class="logo-text" @fadeInOut *ngIf="collapsed">Amaterasu</div>
+    <button class="btn-close" @rotate (click)="closeNav()" *ngIf="collapsed">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+  <ul class="sidenav-nav">
+    <li class="sidenav-nav-item" *ngFor="let menu of menus">
+      
+      
+      <a
+        *ngIf="!menu.items"
+        href=""
+        class="sidenav-nav-link"
+        [routerLink]="menu.routerLink"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="expandir(menu)"
+      >
+        <i class="sidenav-link-icon" [ngClass]="menu.icon"></i>
+        <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">{{menu.label}}</span>
+      </a>
+
+
+      <a
+      *ngIf="menu.items && menu.items.length > 0"
+      class="sidenav-nav-link"
+
+    >
+      <i class="sidenav-link-icon" [ngClass]="menu.icon"></i>
+      <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">{{menu.label}}</span>
+      <button 
+      class="btn-expand"
+      (click)="expandir(menu)"
+      *ngIf="collapsed && menu.items && menu.items.length > 0">
+
+        <i
+        class="menu-expand-icon"
+        @fadeInOut
+        *ngIf="collapsed && menu.items && menu.items.length > 0"
+        [ngClass]="
+        !menu.expanded
+        ? 'fa-solid fa-chevron-right'
+        : 'fa-solid fa-chevron-down'
+        "
+        
+        >
+      </i>
+    </button>
+
+    </a>
+
+      <div *ngIf="menu.items && menu.items.length > 0">
+        <ul
+          *ngIf="collapsed && menu.items && menu.items.length > 0 && menu.expanded"
+          class="sublevel-nav"
+        >
+          <li *ngFor="let item of menu.items" class="sublevel-nav-item">
+            <a
+              class="sublevel-nav-link"
+              *ngIf="item && menu.items.length > 0"
+              [routerLink]="item.routerLink"
+              routerLinkActive="active-sublevel"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              <i class="sublevel-link-icon fa fa-circle"></i>
+              <span class="sublevel-link-text" *ngIf="collapsed">{{item.label}}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+
+      
+    </li>
+  </ul>
+</div>

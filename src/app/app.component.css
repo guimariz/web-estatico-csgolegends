@@ -1,0 +1,77 @@
+.body{
+    width: calc(100% - 5rem);
+    height: 100vh;
+    margin-left: 5rem;
+    z-index: 0;
+    top: 0;
+    transition: all .5s ease;
+    background: #f4f7fa;
+    padding: 3rem;
+}
+
+.head{
+    width: calc(100% - 5rem);
+    margin-left: 5rem;
+    z-index: 1;
+    position: initial;
+    top: 0;
+    transition: all .5s ease;
+    background: #f4f7fa;
+    padding: 1rem 1.5rem 0 1.5rem;
+
+}
+
+
+
+.body-trimmed{
+    width: calc(100% - 16.5625rem);
+    height: 100vh;
+    margin-left: 16.5625rem;
+    z-index: 0;
+    top: 0;
+    transition: all .5s ease;
+    background: #f4f7fa;
+    padding: 3rem;
+    
+
+}
+
+
+.head-trimmed{
+    width: calc(100% - 16.5625rem);
+    margin-left: 16.5625rem;
+    z-index: 1;
+    position: initial;
+    top: 0;
+    transition: all .5s ease;
+    background: #f4f7fa;
+    padding: 1rem 1.5rem 0 1.5rem;
+
+}
+
+.body-md-screen{
+    width: calc(100% - 5rem);
+    height: 100vh;
+    margin-left: 5rem;
+    z-index: 0;
+    position: relative;
+    top: 0;
+    transition: all .5s ease;
+    background: #f4f7fa;
+    padding: 3rem;
+}
+
+
+
+
+.head-md-screen{
+    width: calc(100% - 5rem);
+    margin-left: 5rem;
+    z-index: 1;
+    position: initial;
+    top: 0;
+    transition: all .5s ease;
+    background: #f4f7fa;
+    padding: 1rem 1.5rem 0 1.5rem;
+
+}
