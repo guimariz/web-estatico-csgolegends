@@ -39,6 +39,7 @@ import { animate, keyframes, style, transition, trigger } from '@angular/animati
     ])
   ]
 })
+
 export class SideNavComponent implements OnInit {
 
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
@@ -66,7 +67,6 @@ export class SideNavComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.listMenus()
     this.largura = window.innerWidth;
   }
@@ -81,12 +81,10 @@ export class SideNavComponent implements OnInit {
     });
   }
 
-
   toggleCollapse(){
     this.collapsed = !this.collapsed
     console.log(this.largura)
     this.onToggleSideNav.emit({collapsed: this.collapsed, largura: this.largura})
-
   }
 
   closeNav(){
@@ -104,8 +102,6 @@ export class SideNavComponent implements OnInit {
         m.expanded = false
       }
     })
-
   }
-
 
 }
